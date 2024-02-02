@@ -120,7 +120,7 @@ export const updateCandidate = async (req, res) => {
             WHERE candidateid = $8
         `;
 
-        const result = await client.query(updateQuery, [body.name, body.email, body.phone, body.status, body.skills, body.salary, computedScore, id]);
+        const result = await client.query(updateQuery, [body.name, body.email, body.phone, body.status, body.skills, body.salary, computedScore, candidateid]);
         await client.end();
 
         return res.status(200).json({
